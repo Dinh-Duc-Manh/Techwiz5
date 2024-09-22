@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AdHomeScreen extends StatelessWidget {
+  const AdHomeScreen({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -4,10 +4,12 @@ import 'package:trip_planner/screen/Detail/order_screen.dart';
 
 
 import '../../../constants.dart';
+import '../../../model/Users.dart';
 
 class Trip extends StatefulWidget {
+  final Users user;
   final Tours tour;
-  const Trip({super.key, required this.tour});
+  const Trip({super.key, required this.tour, required this.user});
 
   @override
   State<Trip> createState() => _TripState();
@@ -84,6 +86,7 @@ class _TripState extends State<Trip> {
                   context,
                   MaterialPageRoute(
                     builder: (context) => OrderScreen(
+                      user: widget.user,
                       tour: widget.tour,
                       quantity: currentIndex, // Pass the selected quantity
                     ),
@@ -99,7 +102,7 @@ class _TripState extends State<Trip> {
                 alignment: Alignment.center,
                 padding: const EdgeInsets.symmetric(horizontal: 50),
                 child: const Text(
-                  "Add to Cart",
+                  "Add to Trip",
                   style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,

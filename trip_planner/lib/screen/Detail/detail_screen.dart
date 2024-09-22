@@ -3,20 +3,22 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import '../../constants.dart';
 import '../../model/Tours.dart';
+import '../../model/Users.dart';
 import 'Widget/detail_app_bar.dart';
 import 'Widget/items_details.dart';
 import 'Widget/trip.dart';
 
 class DetailScreen extends StatelessWidget {
+  final Users user;
   final Tours tour;
 
-  const DetailScreen({super.key, required this.tour});
+  const DetailScreen({super.key, required this.tour, required this.user});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: kcontentColor,
-      floatingActionButton: Trip(tour: tour),
+      floatingActionButton: Trip(tour: tour, user: user),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       body: SafeArea(
         child: SingleChildScrollView(

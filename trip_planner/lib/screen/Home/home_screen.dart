@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../model/Tours.dart';
+import '../../model/Users.dart';
 import '../../model/category.dart';
 import '../../service/data.dart';
 import '../../service/tour_service.dart';
@@ -8,7 +9,9 @@ import 'Widget/product_cart.dart';
 import 'Widget/search_bar.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  final Users user;
+
+  const HomeScreen({super.key, required this.user});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -138,8 +141,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         return Padding(
                           padding: const EdgeInsets.only(bottom: 20),
                           child: ProductCard(
-                            tour: toursList[index],
-                          ),
+                              tour: toursList[index], user: widget.user),
                         );
                       },
                     ),

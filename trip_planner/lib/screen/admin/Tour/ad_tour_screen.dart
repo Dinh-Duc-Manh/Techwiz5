@@ -8,12 +8,13 @@ import 'add_tour_form_screen.dart';
 import 'detail_tour_screen.dart';
 import 'edit_tour_form_screen.dart';
 
-class TourScreen extends StatefulWidget {
+class AdTourScreen extends StatefulWidget {
+  const AdTourScreen({super.key});
   @override
-  _TourScreenState createState() => _TourScreenState();
+  _AdTourScreenState createState() => _AdTourScreenState();
 }
 
-class _TourScreenState extends State<TourScreen> {
+class _AdTourScreenState extends State<AdTourScreen> {
   List<Tours> tours = [];
   late TourService service;
 

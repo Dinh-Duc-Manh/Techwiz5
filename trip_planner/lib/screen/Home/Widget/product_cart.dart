@@ -2,11 +2,13 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import '../../../model/Tours.dart';
+import '../../../model/Users.dart';
 import '../../Detail/detail_screen.dart';
 
 class ProductCard extends StatelessWidget {
+  final Users user;
   final Tours tour; // Replace with Tours model
-  const ProductCard({super.key, required this.tour});
+  const ProductCard({super.key, required this.tour, required this.user});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +18,7 @@ class ProductCard extends StatelessWidget {
           context,
           MaterialPageRoute(
             builder: (context) =>
-                DetailScreen(tour: tour), // Pass tour to detail screen
+                DetailScreen(tour: tour, user: user), // Pass tour to detail screen
           ),
         );
       },

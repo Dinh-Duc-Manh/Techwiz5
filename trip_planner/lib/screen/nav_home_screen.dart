@@ -3,6 +3,7 @@ import '../constants.dart';
 import '../model/Users.dart';
 import 'About/about_us.dart';
 import 'Contact/contact_us.dart';
+import 'Trip/trip_screen.dart';
 import 'Home/home_screen.dart';
 import 'Profile/profile_screen.dart';
 
@@ -24,8 +25,8 @@ class _NavHomeScreenState extends State<NavHomeScreen> {
     super.initState();
     screens = [
       const ContactUs(),
-      const AboutUs(),
-      const HomeScreen(),
+      TripScreen(user: widget.user),  // Pass the user here
+      HomeScreen(user: widget.user),
       const AboutUs(),
       ProfileScreen(user: widget.user),
     ];

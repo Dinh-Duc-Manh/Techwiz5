@@ -6,11 +6,14 @@ import 'package:trip_planner/screen/Detail/expenses_screen.dart';
 import 'package:trip_planner/service/data.dart';
 import 'package:trip_planner/service/trip_service.dart';
 
+import '../../model/Users.dart';
+
 class OrderScreen extends StatefulWidget {
+  final Users user;
   final Tours tour;
   final int quantity;  // Add the quantity parameter
 
-  const OrderScreen({Key? key, required this.tour, required this.quantity}) : super(key: key);
+  const OrderScreen({Key? key, required this.tour, required this.user, required this.quantity}) : super(key: key);
 
   @override
   _OrderScreenState createState() => _OrderScreenState();
@@ -135,14 +138,14 @@ class _OrderScreenState extends State<OrderScreen> {
 
   void placeOrder() async {
     Trips trip = Trips(
-      0, // Auto-incrementing trip_id, so this will be ignored
+      -1, // Auto-incrementing trip_id, so this will be ignored
       widget.tour.tour_name,
       _startDate!,
       _endDate!,
       widget.tour.nation,
       widget.tour.tour_price * widget.quantity, // Total price
       widget.tour.tour_id,
-      1, // Replace with actual user_id
+      widget.user.user_id!,
     );
 
     // Insert the trip into the database
@@ -156,7 +159,9 @@ class _OrderScreenState extends State<OrderScreen> {
       context,
       MaterialPageRoute(
         builder: (context) => ExpensesScreen(
-          tripId: trip.tour_id,
+          tour: widget.tour,
+          user: widget.user,
+          trip: trip,
           amount: widget.quantity, // Pass the quantity as amount
           startDate: _startDate!,
           endDate: _endDate!,

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:trip_planner/screen/admin/Trip/ad_trip_screen.dart';
 import '../../constants.dart';
 import '../../model/Users.dart';
 import 'Profile/ad_profile.dart';
-import 'Tour/tour_screen.dart';
+import 'Tour/ad_tour_screen.dart';
 import 'account/account_screen.dart';
 import 'ad_home_screen.dart';
 
@@ -23,10 +24,10 @@ class _AdNavHomeScreenState extends State<AdNavHomeScreen> {
   void initState() {
     super.initState();
     screens = [
-      TourScreen(),
-      AccountScreen(),
-      AdHomeScreen(),
-      AccountScreen(),
+      const AdTourScreen(),
+      const AdTripScreen(),
+      const AdHomeScreen(),
+      const AccountScreen(),
       AdProfile(user: widget.user),
     ];
   }

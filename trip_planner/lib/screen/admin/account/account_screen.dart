@@ -7,6 +7,7 @@ import 'detail_account_screen.dart';
 import 'edit_account_form_screen.dart';
 
 class AccountScreen extends StatefulWidget {
+  const AccountScreen({super.key});
   @override
   _AccountScreenState createState() => _AccountScreenState();
 }
